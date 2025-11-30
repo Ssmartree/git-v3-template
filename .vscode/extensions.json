@@ -1,0 +1,19 @@
+{
+  // 推荐安装的 VS Code 插件列表
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker", // 拼写检查，检测代码中的单词拼写错误
+    "kisstkondoros.vscode-gutter-preview", // 图片预览，在代码行号旁显示图片缩略图
+    "MariusAlchimavicius.json-to-ts", // JSON 转 TypeScript 类型定义
+    "stylelint.vscode-stylelint", // Stylelint 集成，CSS/SCSS 代码检查
+    "EditorConfig.EditorConfig", // EditorConfig 支持，统一编辑器配置
+    "naumovs.color-highlight", // 颜色高亮，在代码中显示颜色值
+    "esbenp.prettier-vscode", // Prettier 代码格式化
+    "dbaeumer.vscode-eslint", // ESLint 集成，JavaScript/TypeScript 代码检查
+    "editorconfig.editorc", // EditorConfig 支持（备用）
+    "csstools.postcss", // PostCSS 语法支持
+    "antfu.iconify", // Iconify 图标智能提示
+    "antfu.unocss", // UnoCSS 智能提示和预览
+    "simonhe.unot", // UnoCSS 工具（备用）
+    "Vue.volar" // Vue 3 官方语言支持（TypeScript、智能提示、语法高亮）
+  ]
+}

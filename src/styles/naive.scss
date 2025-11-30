@@ -1,0 +1,4 @@
+// 解决Notification通知不自动换行的问题
+.n-notification-main-footer__meta {
+  word-break: break-all;
+}

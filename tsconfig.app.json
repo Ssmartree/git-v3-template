@@ -1,0 +1,17 @@
+{
+  // 扩展: 基于 @vue/tsconfig/tsconfig.dom.json，主要用于浏览器环境。
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "composite": true, // composite: 启用增量编译以加快编译速度。
+
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    "baseUrl": ".", // baseUrl 和 paths: 设置模块的根路径和路径别名。
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  // include 和 exclude: 包含或排除特定文件进行编译。
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "configs/**/*", "types/**/*", "src/views/webSocket/ws.ts"],
+  "exclude": ["src/**/__tests__/*"]
+}
