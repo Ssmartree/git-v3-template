@@ -1,0 +1,38 @@
+{
+  "vue3 ts style": {
+    "scope": "vue",
+    "prefix": "v3",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "",
+      "</script>\n",
+      "<template>",
+      "  <div>$2\n",
+      "  </div>",
+      "</template>\n",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>\n"
+    ],
+  },
+  "uniapp vue3 snippet": {
+    "scope": "vue",
+    "prefix": "v3u",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "",
+      "</script>\n",
+      "<template>",
+      "  <div>$2</div>",
+      "</template>\n",
+    ],
+  },
+  "style snippet": {
+    "scope": "vue",
+    "prefix": "st",
+    "body": [
+      "<style lang=\"scss\" scoped>",
+      "</style>\n"
+    ],
+  },
+}
