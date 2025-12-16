@@ -133,9 +133,9 @@ const a = []
 
   /* 默认值，项目会被拉伸 */
   height: 200px;
+  border: 2px solid #000;
 
   /* 父容器的高度 */
-  border: 2px solid #000;
 }
 
 .item {

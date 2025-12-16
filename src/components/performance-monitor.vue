@@ -1,88 +1,7 @@
-<template>
-  <div class="performance-monitor">
-    <h2>🚀 Web Vitals 性能监控</h2>
-    
-    <div v-if="score !== null" class="score-card" :class="scoreClass">
-      <div class="score-value">{{ score }}</div>
-      <div class="score-label">性能评分</div>
-    </div>
-
-    <div class="metrics-grid">
-      <!-- LCP - 最大内容绘制 -->
-      <div v-if="metrics.LCP" class="metric-card" :class="getRatingClass(metrics.LCP.rating)">
-        <div class="metric-icon">🎨</div>
-        <div class="metric-name">LCP</div>
-        <div class="metric-desc">最大内容绘制</div>
-        <div class="metric-value">{{ formatValue(metrics.LCP.value, 'LCP') }}ms</div>
-        <div class="metric-rating">{{ getRatingText(metrics.LCP.rating) }}</div>
-        <div class="metric-threshold">目标: &lt; 2500ms</div>
-      </div>
-
-      <!-- CLS - 累积布局偏移 -->
-      <div v-if="metrics.CLS" class="metric-card" :class="getRatingClass(metrics.CLS.rating)">
-        <div class="metric-icon">📐</div>
-        <div class="metric-name">CLS</div>
-        <div class="metric-desc">累积布局偏移</div>
-        <div class="metric-value">{{ formatValue(metrics.CLS.value, 'CLS') }}</div>
-        <div class="metric-rating">{{ getRatingText(metrics.CLS.rating) }}</div>
-        <div class="metric-threshold">目标: &lt; 0.1</div>
-      </div>
-
-      <!-- FCP - 首次内容绘制 -->
-      <div v-if="metrics.FCP" class="metric-card" :class="getRatingClass(metrics.FCP.rating)">
-        <div class="metric-icon">🎭</div>
-        <div class="metric-name">FCP</div>
-        <div class="metric-desc">首次内容绘制</div>
-        <div class="metric-value">{{ formatValue(metrics.FCP.value, 'FCP') }}ms</div>
-        <div class="metric-rating">{{ getRatingText(metrics.FCP.rating) }}</div>
-        <div class="metric-threshold">目标: &lt; 1800ms</div>
-      </div>
-
-      <!-- TTFB - 首字节时间 -->
-      <div v-if="metrics.TTFB" class="metric-card" :class="getRatingClass(metrics.TTFB.rating)">
-        <div class="metric-icon">🌐</div>
-        <div class="metric-name">TTFB</div>
-        <div class="metric-desc">首字节时间</div>
-        <div class="metric-value">{{ formatValue(metrics.TTFB.value, 'TTFB') }}ms</div>
-        <div class="metric-rating">{{ getRatingText(metrics.TTFB.rating) }}</div>
-        <div class="metric-threshold">目标: &lt; 800ms</div>
-      </div>
-
-      <!-- INP - 交互到下一次绘制 -->
-      <div v-if="metrics.INP" class="metric-card" :class="getRatingClass(metrics.INP.rating)">
-        <div class="metric-icon">👆</div>
-        <div class="metric-name">INP</div>
-        <div class="metric-desc">交互到绘制</div>
-        <div class="metric-value">{{ formatValue(metrics.INP.value, 'INP') }}ms</div>
-        <div class="metric-rating">{{ getRatingText(metrics.INP.rating) }}</div>
-        <div class="metric-threshold">目标: &lt; 200ms</div>
-      </div>
-    </div>
-
-    <div class="tips">
-      <h3>💡 性能优化建议</h3>
-      <ul>
-        <li v-if="metrics.LCP?.rating !== 'good'">
-          <strong>LCP 优化：</strong>优化图片加载、使用 CDN、启用懒加载
-        </li>
-        <li v-if="metrics.INP?.rating !== 'good'">
-          <strong>INP 优化：</strong>拆分长任务、使用 Web Worker、减少 JavaScript 执行时间
-        </li>
-        <li v-if="metrics.CLS?.rating !== 'good'">
-          <strong>CLS 优化：</strong>为图片和视频设置尺寸、避免在现有内容上方插入内容
-        </li>
-        <li v-if="metrics.TTFB?.rating !== 'good'">
-          <strong>TTFB 优化：</strong>使用 CDN、启用 HTTP/2、优化服务器响应时间
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
+import type { PerformanceData } from '../utils/performance/performance'
 import { onMounted, ref } from 'vue'
 import { getPerformanceMonitor } from '../utils/performance/performance'
-import type { PerformanceData } from '../utils/performance/performance'
 
 const metrics = ref<Record<string, PerformanceData>>({})
 const score = ref<number | null>(null)
@@ -141,6 +60,151 @@ onMounted(() => {
 })
 </script>
 
+<template>
+  <div class="performance-monitor">
+    <h2>🚀 Web Vitals 性能监控</h2>
+
+    <div v-if="score !== null" class="score-card" :class="scoreClass">
+      <div class="score-value">
+        {{ score }}
+      </div>
+      <div class="score-label">
+        性能评分
+      </div>
+    </div>
+
+    <div class="metrics-grid">
+      <!-- LCP - 最大内容绘制 -->
+      <div v-if="metrics.LCP" class="metric-card" :class="getRatingClass(metrics.LCP.rating)">
+        <div class="metric-icon">
+          🎨
+        </div>
+        <div class="metric-name">
+          LCP
+        </div>
+        <div class="metric-desc">
+          最大内容绘制
+        </div>
+        <div class="metric-value">
+          {{ formatValue(metrics.LCP.value, 'LCP') }}ms
+        </div>
+        <div class="metric-rating">
+          {{ getRatingText(metrics.LCP.rating) }}
+        </div>
+        <div class="metric-threshold">
+          目标: &lt; 2500ms
+        </div>
+      </div>
+
+      <!-- CLS - 累积布局偏移 -->
+      <div v-if="metrics.CLS" class="metric-card" :class="getRatingClass(metrics.CLS.rating)">
+        <div class="metric-icon">
+          📐
+        </div>
+        <div class="metric-name">
+          CLS
+        </div>
+        <div class="metric-desc">
+          累积布局偏移
+        </div>
+        <div class="metric-value">
+          {{ formatValue(metrics.CLS.value, 'CLS') }}
+        </div>
+        <div class="metric-rating">
+          {{ getRatingText(metrics.CLS.rating) }}
+        </div>
+        <div class="metric-threshold">
+          目标: &lt; 0.1
+        </div>
+      </div>
+
+      <!-- FCP - 首次内容绘制 -->
+      <div v-if="metrics.FCP" class="metric-card" :class="getRatingClass(metrics.FCP.rating)">
+        <div class="metric-icon">
+          🎭
+        </div>
+        <div class="metric-name">
+          FCP
+        </div>
+        <div class="metric-desc">
+          首次内容绘制
+        </div>
+        <div class="metric-value">
+          {{ formatValue(metrics.FCP.value, 'FCP') }}ms
+        </div>
+        <div class="metric-rating">
+          {{ getRatingText(metrics.FCP.rating) }}
+        </div>
+        <div class="metric-threshold">
+          目标: &lt; 1800ms
+        </div>
+      </div>
+
+      <!-- TTFB - 首字节时间 -->
+      <div v-if="metrics.TTFB" class="metric-card" :class="getRatingClass(metrics.TTFB.rating)">
+        <div class="metric-icon">
+          🌐
+        </div>
+        <div class="metric-name">
+          TTFB
+        </div>
+        <div class="metric-desc">
+          首字节时间
+        </div>
+        <div class="metric-value">
+          {{ formatValue(metrics.TTFB.value, 'TTFB') }}ms
+        </div>
+        <div class="metric-rating">
+          {{ getRatingText(metrics.TTFB.rating) }}
+        </div>
+        <div class="metric-threshold">
+          目标: &lt; 800ms
+        </div>
+      </div>
+
+      <!-- INP - 交互到下一次绘制 -->
+      <div v-if="metrics.INP" class="metric-card" :class="getRatingClass(metrics.INP.rating)">
+        <div class="metric-icon">
+          👆
+        </div>
+        <div class="metric-name">
+          INP
+        </div>
+        <div class="metric-desc">
+          交互到绘制
+        </div>
+        <div class="metric-value">
+          {{ formatValue(metrics.INP.value, 'INP') }}ms
+        </div>
+        <div class="metric-rating">
+          {{ getRatingText(metrics.INP.rating) }}
+        </div>
+        <div class="metric-threshold">
+          目标: &lt; 200ms
+        </div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h3>💡 性能优化建议</h3>
+      <ul>
+        <li v-if="metrics.LCP?.rating !== 'good'">
+          <strong>LCP 优化：</strong>优化图片加载、使用 CDN、启用懒加载
+        </li>
+        <li v-if="metrics.INP?.rating !== 'good'">
+          <strong>INP 优化：</strong>拆分长任务、使用 Web Worker、减少 JavaScript 执行时间
+        </li>
+        <li v-if="metrics.CLS?.rating !== 'good'">
+          <strong>CLS 优化：</strong>为图片和视频设置尺寸、避免在现有内容上方插入内容
+        </li>
+        <li v-if="metrics.TTFB?.rating !== 'good'">
+          <strong>TTFB 优化：</strong>使用 CDN、启用 HTTP/2、优化服务器响应时间
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
 <style scoped lang="scss">
 /* stylelint-disable */
 .performance-monitor {
@@ -166,7 +230,7 @@ onMounted(() => {
   align-items: center;
   border-radius: 50%;
   border: 6px solid;
-  
+
   &.score-good {
     border-color: #0cce6b;
     color: #0cce6b;
@@ -304,4 +368,3 @@ onMounted(() => {
   }
 }
 </style>
-

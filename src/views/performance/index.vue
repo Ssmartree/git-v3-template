@@ -1,12 +1,12 @@
-<template>
-  <div class="performance-page">
-    <PerformanceMonitor />
-  </div>
-</template>
-
 <script setup lang="ts">
 import PerformanceMonitor from '@/components/performance-monitor.vue'
 </script>
+
+<template>
+  <div class="performance-page">
+    <performance-monitor />
+  </div>
+</template>
 
 <style scoped lang="scss">
 /* stylelint-disable */
@@ -16,4 +16,3 @@ import PerformanceMonitor from '@/components/performance-monitor.vue'
   background: #f5f7fa;
 }
 </style>
-

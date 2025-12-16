@@ -20,6 +20,13 @@ const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'
 document.head.appendChild(meta)
 
+// 捕捉路由错误
+router.onError((error) => {
+  if (error.message.includes('Failed to fetch dynamically imported module')) {
+    window.location.reload()
+  }
+})
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)

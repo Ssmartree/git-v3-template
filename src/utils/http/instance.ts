@@ -1,8 +1,8 @@
 import type { AxiosError, AxiosRequestConfig, AxiosResponse, Canceler } from 'axios'
+import { showToast } from '@/components/Toast'
 import router from '@/router'
 import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
-import { showToast } from '@/components/Toast'
 import axios from 'axios'
 import qs from 'qs'
 

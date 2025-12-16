@@ -4,25 +4,25 @@
   "npm.packageManager": "pnpm", // 指定使用 pnpm 包管理器
   "editor.tabSize": 2, // Tab 缩进大小为 2 个空格
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 默认使用 Prettier 格式化
-  
+
   // ==================== 性能优化 ====================
   // 保存文件缓慢时，可以考虑开启以下 3 行配置
   "vue.server.maxOldSpaceSize": 4096, // Vue 语言服务最大内存（4GB）
   "vue.server.hybridMode": true, // Vue 混合模式，提升性能
   "typescript.tsserver.maxTsServerMemory": 4096, // TS 服务器最大内存（4GB）
-  
+
   // ==================== 编辑器设置 ====================
   "files.eol": "\n", // 统一使用 LF 换行符（Linux/Mac 风格）
   "editor.guides.bracketPairs": true, // 显示括号对参考线
   "editor.bracketPairColorization.enabled": true, // 启用括号对颜色区分
-  
+
   // ==================== Vue 特性 ====================
   "vue.inlayHints.missingProps": true, // 显示缺失的 props 提示
   "vue.autoInsert.dotValue": true, // 自动插入 .value（ref 解包提示）
-  
+
   // ==================== 文件管理 ====================
   "explorer.copyRelativePathSeparator": "/", // 复制相对路径时使用 / 分隔符
-  
+
   // 搜索时排除的文件和目录（加快搜索速度）
   "search.exclude": {
     "**/node_modules": true, // 排除 node_modules
@@ -49,14 +49,14 @@
     "pnpm-error.log": true,
     "**/.pnpm": true
   },
-  
+
   // 文件资源管理器中隐藏的文件（简化目录结构）
   "files.exclude": {
     "index.html": true,
     "README.md": true,
-    "readme-images": true,
+    "readme-images": true
   },
-  
+
   // 文件监视器排除的目录（减少 CPU 占用）
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -68,17 +68,17 @@
     "**/dist/**": true,
     "**/pnpm.lock": true
   },
-  
+
   // ==================== 代码检查工具 ====================
   "eslint.useFlatConfig": true, // 使用 ESLint 9.x 新版 Flat Config 格式
   "stylelint.enable": true, // 启用 Stylelint 样式检查
   "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"], // Stylelint 检查的文件类型
-  
+
   // ==================== 路径智能提示 ====================
   "path-intellisense.mappings": {
     "@/": "${workspaceRoot}/src" // @ 别名映射到 src 目录
   },
-  
+
   // ==================== 国际化配置（i18n-ally）====================
   "i18n-ally.localesPaths": ["src/locales/lang"], // 国际化文件路径
   "i18n-ally.keystyle": "nested", // 使用嵌套的键名风格
@@ -89,7 +89,7 @@
   "i18n-ally.sourceLanguage": "en", // 源语言：英文
   "i18n-ally.displayLanguage": "zh-CN", // 显示语言：简体中文
   "i18n-ally.enabledFrameworks": ["vue", "react"], // 支持的框架
-  
+
   // ==================== 格式化配置 ====================
   "prettier.enable": false, // 禁用 Prettier（使用 ESLint 格式化）
   "editor.formatOnSave": false, // 关闭保存时自动格式化（使用 codeActions 代替）
@@ -101,7 +101,6 @@
     "source.fixAll.stylelint": "explicit" // 保存时自动修复 Stylelint 问题
   },
 
-  
   // ==================== ESLint 规则定制 ====================
   // 隐藏样式类规则的警告（仍会自动修复）
   "eslint.rules.customizations": [
@@ -114,14 +113,14 @@
     { "rule": "*-dangle", "severity": "off", "fixable": true }, // 尾随逗号规则
     { "rule": "*-newline", "severity": "off", "fixable": true }, // 换行规则
     { "rule": "*quotes", "severity": "off", "fixable": true }, // 引号规则
-    { "rule": "*semi", "severity": "off", "fixable": true }, // 分号规则
+    { "rule": "*semi", "severity": "off", "fixable": true } // 分号规则
   ],
-  
+
   // ==================== CSS 验证 ====================
   "css.validate": false, // 禁用 CSS 内置验证（使用 Stylelint）
   "less.validate": false, // 禁用 Less 内置验证
   "scss.validate": false, // 禁用 SCSS 内置验证
-  
+
   // ESLint 检查的文件类型（全语言支持）
   "eslint.validate": [
     "javascript",
@@ -145,7 +144,7 @@
     "pcss",
     "postcss"
   ],
-  
+
   // ==================== 拼写检查白名单 ====================
   "cSpell.words": [
     "brdcontrol",
@@ -160,7 +159,7 @@
     "requesttype",
     "tanstack"
   ],
-  
+
   // ==================== 文件嵌套展示 ====================
   // 将相关配置文件嵌套在主文件下，简化目录结构
   "explorer.fileNesting.enabled": true, // 启用文件嵌套
@@ -172,10 +171,10 @@
     "vite.config.ts": "tsconfig.json,uno.config.ts",
     "pages.config.ts": "manifest.config.ts"
   },
-  
+
   // ==================== 其他工具 ====================
   "svn.ignoreMissingSvnWarning": true, // 忽略 SVN 警告
-  
+
   // ==================== 不同文件类型的格式化器 ====================
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar" // Vue 文件使用 Volar 格式化
@@ -183,7 +182,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features" // JS 文件使用 TS 格式化
   },
-  
+
   // ==================== TypeScript 内联提示 ====================
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true, // 显示函数返回类型
   "typescript.inlayHints.parameterNames.enabled": "all", // 显示所有参数名称

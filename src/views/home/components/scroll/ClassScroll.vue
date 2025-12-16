@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { VirtualScroll } from '@/utils/VirtualScroll'
-const name =''
+
+const name = ''
 interface Item {
   id: number
   name: string
@@ -9,7 +10,7 @@ function foo(input: string) {
   return input
 }
 foo('linbudu')
-let abc = 'aahfjklah'
+const abc = 'aahfjklah'
 // abc = 10
 const data: Item[] = Array.from({ length: 1000 }, (_, i) => ({
   id: i,

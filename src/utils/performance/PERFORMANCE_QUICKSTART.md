@@ -32,13 +32,13 @@
 
 ## 🎯 性能指标说明
 
-| 指标 | 含义 | 目标值 | 评级标准 |
-|------|------|--------|---------|
-| **LCP** | 最大内容绘制 | < 2.5s | 🟢 < 2.5s / 🟡 2.5-4s / 🔴 > 4s |
-| **CLS** | 累积布局偏移 | < 0.1 | 🟢 < 0.1 / 🟡 0.1-0.25 / 🔴 > 0.25 |
-| **FCP** | 首次内容绘制 | < 1.8s | 🟢 < 1.8s / 🟡 1.8-3s / 🔴 > 3s |
-| **TTFB** | 首字节时间 | < 800ms | 🟢 < 800ms / 🟡 800-1800ms / 🔴 > 1800ms |
-| **INP** | 交互到绘制 | < 200ms | 🟢 < 200ms / 🟡 200-500ms / 🔴 > 500ms |
+| 指标     | 含义         | 目标值  | 评级标准                                 |
+| -------- | ------------ | ------- | ---------------------------------------- |
+| **LCP**  | 最大内容绘制 | < 2.5s  | 🟢 < 2.5s / 🟡 2.5-4s / 🔴 > 4s          |
+| **CLS**  | 累积布局偏移 | < 0.1   | 🟢 < 0.1 / 🟡 0.1-0.25 / 🔴 > 0.25       |
+| **FCP**  | 首次内容绘制 | < 1.8s  | 🟢 < 1.8s / 🟡 1.8-3s / 🔴 > 3s          |
+| **TTFB** | 首字节时间   | < 800ms | 🟢 < 800ms / 🟡 800-1800ms / 🔴 > 1800ms |
+| **INP**  | 交互到绘制   | < 200ms | 🟢 < 200ms / 🟡 200-500ms / 🔴 > 500ms   |
 
 ---
 
@@ -50,36 +50,36 @@
 
 ```typescript
 // 当前配置（开发环境打印日志，生产环境上报）
-quickStartMonitor()
+quickStartMonitor();
 
 // 自定义配置
 setupPerformanceMonitor({
-  enableLog: true,              // 是否打印日志
-  enableReport: true,           // 是否上报数据
-  reportUrl: '/api/performance',// 上报地址
+  enableLog: true, // 是否打印日志
+  enableReport: true, // 是否上报数据
+  reportUrl: "/api/performance", // 上报地址
   customHandler: (metric) => {
     // 自定义处理逻辑
-    console.log('收到指标:', metric)
+    console.log("收到指标:", metric);
   },
-})
+});
 ```
 
 ### 在组件中使用
 
 ```vue
 <script setup lang="ts">
-import { getPerformanceMonitor } from '@/utils/performance'
+import { getPerformanceMonitor } from "@/utils/performance";
 
-const monitor = getPerformanceMonitor()
+const monitor = getPerformanceMonitor();
 
 // 获取所有指标
-const metrics = monitor?.getMetrics()
+const metrics = monitor?.getMetrics();
 
 // 获取单个指标
-const lcp = monitor?.getMetric('LCP')
+const lcp = monitor?.getMetric("LCP");
 
 // 获取综合评分 (0-100)
-const score = monitor?.getScore()
+const score = monitor?.getScore();
 </script>
 ```
 
@@ -91,7 +91,7 @@ const score = monitor?.getScore()
 
 ```typescript
 // src/main.ts
-quickStartMonitor('/api/your-endpoint')
+quickStartMonitor("/api/your-endpoint");
 ```
 
 ### 2. 服务端接收数据
@@ -113,15 +113,15 @@ quickStartMonitor('/api/your-endpoint')
 ## 🎨 添加性能监控面板到你的页面
 
 ```vue
+<script setup lang="ts">
+import PerformanceMonitor from "@/components/performance-monitor.vue";
+</script>
+
 <template>
   <div>
-    <PerformanceMonitor />
+    <performance-monitor />
   </div>
 </template>
-
-<script setup lang="ts">
-import PerformanceMonitor from '@/components/performance-monitor.vue'
-</script>
 ```
 
 ---
@@ -152,4 +152,3 @@ A: 遵循 Google 的 Core Web Vitals 标准，详见 [web.dev/vitals](https://we
 ---
 
 **开始监控你的应用性能吧！** ⚡
-
